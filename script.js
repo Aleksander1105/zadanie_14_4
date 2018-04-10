@@ -2,8 +2,7 @@ var movies = [
 	{
 		id: 1,
 		title: 'Harry Potter',
-		dsc: 'Film o czarodzieju',
-		img: './kiler.png'
+		dsc: 'Film o czarodzieju'
 	},
 	{   
 		id: 2,
@@ -45,7 +44,7 @@ const Movie = React.createClass({
 		return (
 			React.createElement('li', {},
 				React.createElement(MovieTitle, {movieTitle: this.props.movie.title}),
-				React.createElement.(MovieDsc, {movieDsc: this.props.movie.dsc}),
+				React.createElements(MovieDsc, {movieDsc: this.props.movie.dsc}),
 			)
 		);
 	}
