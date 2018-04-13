@@ -2,26 +2,30 @@ var movies = [
 	{
 		id: 1,
 		title: 'Harry Potter',
-		dsc: 'Film o czarodzieju'
+		dsc: 'Film o czarodzieju',
+		img: './Harry-Potter.jpg'
 	},
 	{   
 		id: 2,
 		title: 'Psy 2',
-		dsc: 'Film o Bogusiu Lindzie'
+		dsc: 'Film o Bogusiu Lindzie',
+		img: './linda.boguslaw.jpg'
 	},
 	{   
 		id: 3,
 		title: 'Nietykalni',
-		dsc: 'Film o murzynie'
+		dsc: 'Film o murzynie',
+		img: './nietykalni-10.png'
 	},
 	{   
 		id: 4,
 		title: 'Killer',
 		dsc: 'Czarek pzura w roli głownej',
+		img: './kiler.png'
 	}
 ];
 	
-const moviesList = React.createClass({
+const MoviesList = React.createClass({
 	propTypes: {
 		moviesList: React.PropTypes.array.isRequired
 	},
@@ -44,7 +48,8 @@ const Movie = React.createClass({
 		return (
 			React.createElement('li', {},
 				React.createElement(MovieTitle, {movieTitle: this.props.movie.title}),
-				React.createElements(MovieDsc, {movieDsc: this.props.movie.dsc}),
+				React.createElement(MovieDsc, {movieDsc: this.props.movie.dsc}),
+				React.createElement(MovieImg, {movieImg: this.props.movie.img})
 			)
 		);
 	}
@@ -63,27 +68,33 @@ const MovieTitle = React.createClass({
 	
 });
 
-const MovieDesc = React.createClass({
+const MovieDsc = React.createClass({
   propTypes: {
-    movieDesc: React.PropTypes.string.isRequired
+    movieDsc: React.PropTypes.string.isRequired
   },
 
   render: function () {
   	return (
-  		React.createElement('p', {}, this.props.movieDesc)
+  		React.createElement('p', {}, this.props.movieDsc)
   	);
   }
 });
 
-const element = React.createClass({
-	render: function () {
-		return (
-			React.createElement('div', {},
-				React.createElement('h2', {}, 'Lista Filmów'),
-				React.createElement(MoviesList, {moviesList: movies})
-			)
-		);
-	}
+const MovieImg = React.createClass({
+  propTypes: {
+    movieImg: React.PropTypes.string.isRequired
+  },
+
+  render: function () {
+  	return (
+  		React.createElement('img', {src: this.props.movieImg})
+  	);
+  }
 });
+
+const element = React.createElement('div', {},
+					React.createElement('h2', {}, 'Lista Filmów'),
+					React.createElement(MoviesList, {moviesList: movies})
+				);
 
 ReactDOM.render(element, document.getElementById('app'));
