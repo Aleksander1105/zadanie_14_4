@@ -82,12 +82,12 @@ const MovieDsc = React.createClass({
 
 const MovieImg = React.createClass({
   propTypes: {
-    movieImg: React.PropTypes.string.isRequired
+    movieImg: React.PropTypes.string.isRequired,
   },
 
   render: function () {
   	return (
-  		React.createElement('img', {alt: this.props.movieTitle, src: this.props.movieImg})
+  		React.createElement('img', {src: this.props.movieImg})
   	);
   }
 });
