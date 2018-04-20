@@ -49,7 +49,7 @@ const Movie = React.createClass({
 			React.createElement('li', {},
 				React.createElement(MovieTitle, {movieTitle: this.props.movie.title}),
 				React.createElement(MovieDsc, {movieDsc: this.props.movie.dsc}),
-				React.createElement(MovieImg, {movieImg: this.props.movie.img})
+				React.createElement(MovieImg, {movieImg: this.props.movie.img this.props.movie.title})
 			)
 		);
 	}
@@ -83,11 +83,12 @@ const MovieDsc = React.createClass({
 const MovieImg = React.createClass({
   propTypes: {
     movieImg: React.PropTypes.string.isRequired,
+    movieTitle: React.PropTypes.string.isRequired
   },
 
   render: function () {
   	return (
-  		React.createElement('img', {src: this.props.movieImg})
+  		React.createElement('img', {src: this.props.movieImg, alt: this.props.movieTitle})
   	);
   }
 });
