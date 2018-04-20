@@ -49,7 +49,7 @@ const Movie = React.createClass({
 			React.createElement('li', {},
 				React.createElement(MovieTitle, {movieTitle: this.props.movie.title}),
 				React.createElement(MovieDsc, {movieDsc: this.props.movie.dsc}),
-				React.createElement(MovieImg, {movieImg: this.props.movie.img this.props.movie.title})
+				React.createElement(MovieImg, {movieImg: this.props.movie.img, movieTitle: this.props.movie.title})
 			)
 		);
 	}
